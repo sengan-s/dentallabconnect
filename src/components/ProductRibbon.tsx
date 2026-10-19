@@ -63,17 +63,17 @@ export const ProductRibbon: React.FC<ProductRibbonProps> = ({ onSelectCategory, 
               type="button"
               onClick={() => onSelectCategory(cat.category)}
               aria-label={`Browse ${cat.label}`}
-              className={`flex-1 min-w-[105px] max-w-[160px] flex flex-col items-center justify-between py-3 px-2 transition-all duration-200 group cursor-pointer focus:outline-none focus-visible:ring-1 ${
+              className={`flex-1 min-w-[120px] sm:min-w-[140px] max-w-[175px] flex flex-col items-center justify-between py-2.5 sm:py-3 px-2 sm:px-3 transition-all duration-200 group cursor-pointer focus:outline-none focus-visible:ring-1 ${
                 isLight
                   ? 'hover:bg-[#F5F6F8] focus-visible:ring-black/20'
-                  : 'hover:bg-white/[0.04] focus-visible:ring-white/20'
+                  : 'hover:bg-white/[0.05] focus-visible:ring-white/20'
               }`}
               style={{ scrollSnapAlign: 'start' }}
             >
-              {/* Product Thumbnail image */}
+              {/* Product Thumbnail image — enlarged for clear recognition */}
               <div
-                className="w-full flex items-center justify-center p-1 overflow-hidden"
-                style={{ height: '58px' }}
+                className="w-full flex items-center justify-center p-0.5 overflow-hidden rounded-lg"
+                style={{ height: '72px' }}
               >
                 <img
                   src={cat.imageSrc}
@@ -88,7 +88,7 @@ export const ProductRibbon: React.FC<ProductRibbonProps> = ({ onSelectCategory, 
 
               {/* Centered label below image */}
               <span
-                className={`text-[10px] sm:text-[11px] leading-tight text-center font-medium mt-1 whitespace-pre-line transition-colors ${
+                className={`text-[10.5px] sm:text-[11.5px] leading-tight text-center font-medium mt-1.5 whitespace-pre-line transition-colors ${
                   isLight
                     ? 'text-[#525866] group-hover:text-[#17191D]'
                     : 'text-[#A0A5AE] group-hover:text-white'
@@ -105,31 +105,31 @@ export const ProductRibbon: React.FC<ProductRibbonProps> = ({ onSelectCategory, 
             onClick={onViewAll}
             aria-label="View all products"
             id="ribbon-view-all"
-            className={`flex-1 min-w-[105px] max-w-[160px] flex flex-col items-center justify-center py-3 px-2 transition-all duration-200 group cursor-pointer focus:outline-none focus-visible:ring-1 ${
+            className={`flex-1 min-w-[120px] sm:min-w-[140px] max-w-[175px] flex flex-col items-center justify-center py-2.5 sm:py-3 px-2 sm:px-3 transition-all duration-200 group cursor-pointer focus:outline-none focus-visible:ring-1 ${
               isLight
                 ? 'hover:bg-[#F5F6F8] focus-visible:ring-black/20'
-                : 'hover:bg-white/[0.04] focus-visible:ring-white/20'
+                : 'hover:bg-white/[0.05] focus-visible:ring-white/20'
             }`}
             style={{ scrollSnapAlign: 'start' }}
           >
-            <div className="flex flex-col items-center justify-center gap-1.5 h-[58px]">
-              <div className="grid grid-cols-2 gap-1 p-1">
-                <span className={`w-2 h-2 rounded-[2px] ${isLight ? 'bg-[#17191D]' : 'bg-[#C0C4CA]'}`} />
-                <span className={`w-2 h-2 rounded-[2px] ${isLight ? 'bg-[#17191D]' : 'bg-[#C0C4CA]'}`} />
-                <span className={`w-2 h-2 rounded-[2px] ${isLight ? 'bg-[#17191D]' : 'bg-[#C0C4CA]'}`} />
-                <span className={`w-2 h-2 rounded-[2px] border ${isLight ? 'border-[#17191D]' : 'border-[#C0C4CA]'}`} />
+            <div className="flex flex-col items-center justify-center gap-1.5 h-[72px]">
+              <div className="grid grid-cols-2 gap-1.5 p-1.5 rounded-lg border border-dashed border-white/20 group-hover:border-white/40 transition-colors">
+                <span className={`w-2.5 h-2.5 rounded-[3px] ${isLight ? 'bg-[#17191D]' : 'bg-[#C0C4CA]'}`} />
+                <span className={`w-2.5 h-2.5 rounded-[3px] ${isLight ? 'bg-[#17191D]' : 'bg-[#C0C4CA]'}`} />
+                <span className={`w-2.5 h-2.5 rounded-[3px] ${isLight ? 'bg-[#17191D]' : 'bg-[#C0C4CA]'}`} />
+                <span className={`w-2.5 h-2.5 rounded-[3px] border ${isLight ? 'border-[#17191D]' : 'border-[#C0C4CA]'}`} />
               </div>
             </div>
 
-            <div className="flex items-center justify-center gap-1 mt-1 text-center">
+            <div className="flex items-center justify-center gap-1 mt-1.5 text-center">
               <span
-                className={`text-[10px] sm:text-[11px] font-semibold leading-tight transition-colors ${
+                className={`text-[10.5px] sm:text-[11.5px] font-semibold leading-tight transition-colors ${
                   isLight ? 'text-[#17191D] group-hover:text-black' : 'text-[#C0C4CA] group-hover:text-white'
                 }`}
               >
                 View All<br />Products
               </span>
-              <ArrowRight className={`w-3.5 h-3.5 flex-shrink-0 ml-0.5 ${isLight ? 'text-[#17191D]' : 'text-[#C0C4CA]'}`} />
+              <ArrowRight className={`w-3.5 h-3.5 flex-shrink-0 ml-0.5 group-hover:translate-x-0.5 transition-transform ${isLight ? 'text-[#17191D]' : 'text-[#C0C4CA]'}`} />
             </div>
           </button>
         </div>
