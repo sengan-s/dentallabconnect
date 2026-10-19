@@ -232,50 +232,45 @@ export const Hero: React.FC<HeroProps> = ({
               ))}
             </div>
 
-            {/* Single Unified Container: Image + Name in vertical flex with align-items: center & text-align: center */}
+            {/* Single Unified Container: 35–45% Enlarged Portrait + Centered Signature & Brand */}
             <div className="w-full flex flex-col items-center justify-center text-center">
-              <div className="relative flex justify-center items-end">
+              <div className="relative w-full flex justify-center items-end">
                 <img
                   src="/images/saravana-kumar.png"
                   alt="Saravana Kumar — Dental Lab Connect"
-                  className="w-auto object-contain object-bottom mx-auto"
+                  className="w-auto object-contain object-bottom mx-auto transition-all duration-300"
                   style={{
-                    maxHeight: 'min(52vh, 480px)',
+                    height: 'clamp(380px, 58vh, 670px)',
+                    maxHeight: 'min(76vh, 670px)',
                     maxWidth: '100%',
                     aspectRatio: '778/1024',
                     filter: isLight
-                      ? 'drop-shadow(0 16px 32px rgba(0,0,0,0.12)) brightness(1.01)'
-                      : 'drop-shadow(0 20px 42px rgba(0,0,0,0.85)) brightness(1.02)',
+                      ? 'drop-shadow(0 20px 40px rgba(0,0,0,0.15)) brightness(1.01)'
+                      : 'drop-shadow(0 26px 52px rgba(0,0,0,0.9)) brightness(1.02)',
                   }}
                   loading="eager"
                 />
               </div>
 
-              {/* Owner Name & Signature directly below image, horizontally centered */}
+              {/* Owner Name & Brand directly below image, horizontally centered */}
               <div className="w-full flex flex-col items-center justify-center text-center pt-2.5">
                 <div
                   style={{
                     fontFamily: "'Dancing Script', cursive",
-                    fontSize: '2.1rem',
+                    fontSize: '2.35rem',
                     fontWeight: 700,
                     color: isLight ? '#17191D' : '#FFFFFF',
                     lineHeight: 1.15,
-                    textShadow: isLight ? 'none' : '0 2px 10px rgba(0,0,0,0.85)',
+                    textShadow: isLight ? 'none' : '0 2px 12px rgba(0,0,0,0.85)',
                   }}
                 >
                   Saravana Kumar
                 </div>
                 <div
-                  className="font-mono uppercase text-[9.5px] tracking-[0.28em] mt-1"
-                  style={{ color: isLight ? '#5A6270' : 'rgba(255,255,255,0.65)' }}
+                  className="font-mono uppercase text-[11px] sm:text-xs tracking-[0.28em] font-semibold mt-1"
+                  style={{ color: isLight ? '#5A6270' : 'rgba(255,255,255,0.7)' }}
                 >
-                  SARAVANA KUMAR
-                </div>
-                <div
-                  className="text-[10px] mt-0.5"
-                  style={{ color: isLight ? '#7A8492' : 'rgba(255,255,255,0.45)' }}
-                >
-                  Dental Lab Connect
+                  DENTAL LAB CONNECT
                 </div>
               </div>
             </div>
