@@ -501,6 +501,7 @@ if os.path.exists(out_png_path):
     print(f"Generated successfully: {out_png_path} ({img.size})")
 
     out_files = [
+        "public/og-preview-v3.jpg",
         "public/og-preview.jpg",
         "public/og-thumbnail-v2.jpg",
         "public/og-thumbnail.jpg"
@@ -508,7 +509,7 @@ if os.path.exists(out_png_path):
     rgb_img = img.convert("RGB")
     for out_rel in out_files:
         p = os.path.abspath(out_rel)
-        rgb_img.save(p, "JPEG", quality=88, optimize=True, subsampling=0)
+        rgb_img.save(p, "JPEG", quality=84, optimize=True)
         print(f"Generated successfully: {p} ({os.path.getsize(p) / 1024:.1f} KB)")
 
 if os.path.exists(temp_html_path):
