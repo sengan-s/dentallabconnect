@@ -311,7 +311,7 @@ export const Hero: React.FC<HeroProps> = ({
                     height: 'clamp(320px, 48vw, 620px)',
                     maxHeight: 'min(58vh, 560px)',
                     maxWidth: '100%',
-                    aspectRatio: '778/1024',
+                    aspectRatio: '877/1024',
                     filter: isLight
                       ? 'drop-shadow(0 20px 40px rgba(0,0,0,0.15)) brightness(1.01)'
                       : 'drop-shadow(0 26px 52px rgba(0,0,0,0.9)) brightness(1.02)',

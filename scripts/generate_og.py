@@ -64,7 +64,7 @@ html_content = f"""<!DOCTYPE html>
       left: 100px;
       width: 600px;
       height: 420px;
-      background: radial-gradient(circle, rgba(16, 185, 129, 0.16) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
       filter: blur(85px);
       pointer-events: none;
     }}
@@ -139,22 +139,22 @@ html_content = f"""<!DOCTYPE html>
     .new-indicator {{
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      padding: 5px 12px;
+      gap: 7px;
+      padding: 5px 13px;
       border-radius: 999px;
-      background: rgba(16, 185, 129, 0.16);
-      border: 1px solid rgba(16, 185, 129, 0.40);
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.28);
       font-size: 11px;
       font-weight: 700;
-      color: #34D399;
+      color: #FFFFFF;
       letter-spacing: 0.06em;
     }}
     .pulse-dot {{
       width: 7px;
       height: 7px;
       border-radius: 50%;
-      background: #10B981;
-      box-shadow: 0 0 8px #10B981;
+      background: #FFFFFF;
+      box-shadow: 0 0 8px rgba(255, 255, 255, 0.85);
     }}
     .title-area {{
       margin-top: 14px;
@@ -203,9 +203,9 @@ html_content = f"""<!DOCTYPE html>
       color: #E2E5EC;
     }}
     .stat-badge-accent {{
-      background: rgba(16, 185, 129, 0.12);
-      border-color: rgba(16, 185, 129, 0.35);
-      color: #A7F3D0;
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.32);
+      color: #FFFFFF;
     }}
     .products-showcase {{
       display: flex;
@@ -249,7 +249,7 @@ html_content = f"""<!DOCTYPE html>
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      color: #34D399;
+      color: #CBD5E1;
     }}
     .prod-name {{
       font-size: 15px;
@@ -471,6 +471,11 @@ if os.path.exists(out_png_path):
         img = img.crop((0, 0, 1200, 630)) if img.size[0] >= 1200 and img.size[1] >= 630 else img.resize((1200, 630), Image.Resampling.LANCZOS)
         img.save(out_png_path, "PNG", optimize=True)
     print(f"Generated successfully: {out_png_path} ({img.size})")
+
+    out_jpg_path = os.path.abspath("public/og-thumbnail-v2.jpg")
+    rgb_img = img.convert("RGB")
+    rgb_img.save(out_jpg_path, "JPEG", quality=92, optimize=True, subsampling=0)
+    print(f"Generated successfully: {out_jpg_path} ({os.path.getsize(out_jpg_path) / 1024:.1f} KB)")
 
 if os.path.exists(temp_html_path):
     os.remove(temp_html_path)
