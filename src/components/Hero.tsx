@@ -6,12 +6,7 @@ import {
   Gem, 
   Truck, 
   Users, 
-  ScanLine, 
-  Package, 
-  Sparkles, 
-  Workflow, 
-  ShieldCheck, 
-  ChevronRight 
+  ScanLine 
 } from 'lucide-react';
 import { ProductRibbon } from './ProductRibbon';
 import { AppTheme } from '../types';
@@ -221,45 +216,6 @@ export const Hero: React.FC<HeroProps> = ({
                 <MessageCircle className={`w-4 h-4 ${isLight ? 'text-[#17191D]' : 'text-[#C0C4CA]'}`} />
                 <span>WhatsApp Enquiry</span>
               </a>
-            </div>
-
-            {/* MOBILE ONLY: COMPACT CATALOG OVERVIEW / MODULE JUMP GRID (1-2 Tap Quick Access) */}
-            <div className="w-full pt-2 lg:hidden">
-              <div className="text-[10px] font-mono uppercase tracking-widest mb-1.5 font-semibold text-inherit opacity-70">
-                Quick Catalog Access
-              </div>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                {[
-                  { id: 'products', title: 'Products Catalog', tag: '224 Items', icon: <Package className="w-3.5 h-3.5 text-inherit" /> },
-                  { id: 'scanner', title: 'Dental Scanner', tag: 'Solutions', icon: <ScanLine className="w-3.5 h-3.5 text-inherit" /> },
-                  { id: 'services', title: 'Our Services', tag: 'Disciplines', icon: <Sparkles className="w-3.5 h-3.5 text-inherit" /> },
-                  { id: 'workflow', title: 'How We Work', tag: '4-Step Flow', icon: <Workflow className="w-3.5 h-3.5 text-inherit" /> },
-                  { id: 'quality', title: 'Quality & Delivery', tag: 'On-Time', icon: <ShieldCheck className="w-3.5 h-3.5 text-inherit" /> },
-                  { id: 'contact', title: 'Contact Coordinator', tag: 'Direct Lab', icon: <MessageCircle className="w-3.5 h-3.5 text-inherit" /> },
-                ].map((item) => (
-                  <button
-                    key={item.id}
-                    type="button"
-                    onClick={() => scrollToSection(item.id)}
-                    className={`flex items-center justify-between p-2 rounded-xl border text-left cursor-pointer transition-all active:scale-95 ${
-                      isLight
-                        ? 'bg-[#F7F8FA] hover:bg-[#ECEEF2] border-[#DDE0E5] text-[#17191D]'
-                        : 'bg-white/[0.04] hover:bg-white/[0.08] border-white/10 text-white'
-                    }`}
-                  >
-                    <div className="min-w-0 flex items-center gap-2">
-                      <div className={`p-1.5 rounded-lg border shrink-0 ${isLight ? 'bg-white border-[#DDE0E5]' : 'bg-white/5 border-white/10'}`}>
-                        {item.icon}
-                      </div>
-                      <div className="truncate">
-                        <div className="text-[11px] font-bold leading-tight truncate">{item.title}</div>
-                        <div className={`text-[9px] font-mono leading-tight ${isLight ? 'text-[#5A6270]' : 'text-[#8E95A2]'}`}>{item.tag}</div>
-                      </div>
-                    </div>
-                    <ChevronRight className={`w-3 h-3 shrink-0 ${isLight ? 'text-[#8E95A2]' : 'text-white/30'}`} />
-                  </button>
-                ))}
-              </div>
             </div>
 
             {/* 6. Four Feature Highlights (Silver/White Palette) */}
