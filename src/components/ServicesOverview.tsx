@@ -21,6 +21,15 @@ interface ServiceItem {
 export const ServicesOverview: React.FC<ServicesOverviewProps> = ({ onNavigateToProducts, onBackToHome }) => {
   const services: ServiceItem[] = [
     {
+      id: 'dental-scanner-solutions',
+      title: 'Dental Scanner Solutions',
+      targetCategory: 'Dental Scanner Solutions',
+      description: 'Advanced dental scanning solutions for accurate digital impressions and streamlined dental laboratory workflows.',
+      badge: 'Digital Scanning',
+      imageCategory: 'Dental Scanner Solutions',
+      whatsappMessage: 'Hello Saravana Kumar, I would like to enquire about Dental Scanner Solutions at Dental Lab Connect.',
+    },
+    {
       id: 'functional-fixed-appliances',
       title: 'Functional & Fixed Dental Appliances',
       targetCategory: 'Appliances',
@@ -73,15 +82,6 @@ export const ServicesOverview: React.FC<ServicesOverviewProps> = ({ onNavigateTo
       badge: 'DMLS & CAD/CAM',
       imageCategory: 'Metal Ceramic',
       whatsappMessage: 'Hello Saravana Kumar, I would like to enquire about Metal-Ceramic & CAD/CAM Ceramic Restorations at Dental Lab Connect.',
-    },
-    {
-      id: 'dental-scanner-solutions',
-      title: 'Dental Scanner Solutions',
-      targetCategory: 'Dental Scanner Solutions',
-      description: 'Advanced dental scanning solutions for accurate digital impressions and streamlined dental laboratory workflows.',
-      badge: 'Digital Scanning',
-      imageCategory: 'Dental Scanner Solutions',
-      whatsappMessage: 'Hello Saravana Kumar, I would like to enquire about Dental Scanner Solutions at Dental Lab Connect.',
     },
   ];
 

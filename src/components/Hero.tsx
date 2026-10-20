@@ -84,16 +84,39 @@ export const Hero: React.FC<HeroProps> = ({
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-7 flex flex-col items-start space-y-2.5 sm:space-y-4 text-left"
           >
-            {/* 1. Introductory Label */}
-            <div
-              className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border text-[11px] font-mono backdrop-blur-sm shadow-xs ${
-                isLight
-                  ? 'bg-[#F5F6F8] border-[#DDE0E5] text-[#333742]'
-                  : 'bg-white/[0.06] border-white/[0.15] text-[#D0D4DC]'
-              }`}
-            >
-              <Users className="w-3.5 h-3.5 opacity-80" />
-              <span>Dental Laboratory for Dental Professionals</span>
+            {/* 1. Introductory Labels */}
+            <div className="flex flex-wrap items-center gap-2">
+              <div
+                className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full border text-[11px] font-mono backdrop-blur-sm shadow-xs ${
+                  isLight
+                    ? 'bg-[#F5F6F8] border-[#DDE0E5] text-[#333742]'
+                    : 'bg-white/[0.06] border-white/[0.15] text-[#D0D4DC]'
+                }`}
+              >
+                <Users className="w-3.5 h-3.5 opacity-80" />
+                <span>Dental Laboratory for Dental Professionals</span>
+              </div>
+
+              {/* High-visibility Dental Scanner Launch Pill */}
+              <a
+                href="https://wa.me/917639664119?text=Hello%20Saravana%20Kumar%2C%20I%20would%20like%20to%20enquire%20about%20Dental%20Scanner%20Solutions%20at%20Dental%20Lab%20Connect."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-[11px] font-semibold bg-emerald-500/15 border-emerald-400/40 text-emerald-300 hover:bg-emerald-500/25 transition-all duration-200 group shadow-sm cursor-pointer"
+                title="Enquire on WhatsApp about Dental Scanner Solutions"
+              >
+                <span className="flex h-2 w-2 relative">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+                </span>
+                <span className="px-1 py-0.2 rounded text-[8.5px] font-mono font-black uppercase bg-emerald-400 text-black">
+                  NEW
+                </span>
+                <span className="text-white font-medium group-hover:text-emerald-200 transition-colors">
+                  Dental Scanner Solutions
+                </span>
+                <ArrowRight className="w-3 h-3 text-emerald-400 group-hover:translate-x-0.5 transition-transform" />
+              </a>
             </div>
 
             {/* 2. Main Heading: Bold two-line layout matching reference */}
@@ -175,22 +198,31 @@ export const Hero: React.FC<HeroProps> = ({
               </a>
             </div>
 
-            {/* 6. Three Feature Highlights */}
+            {/* 6. Four Feature Highlights with Dental Scanner First & Highlighted */}
             <div
-              className={`flex flex-wrap items-center gap-5 sm:gap-7 pt-3 border-t w-full ${
+              className={`flex flex-wrap items-center gap-4 sm:gap-6 pt-3 border-t w-full ${
                 isLight ? 'border-[#DDE0E5]' : 'border-white/[0.08]'
               }`}
             >
               {[
+                { icon: <ScanLine className="w-4 h-4 text-emerald-400" />, line1: 'Dental Scanner', line2: 'Solutions', isNew: true },
                 { icon: <Gem className="w-4 h-4" />, line1: 'Quality-Focused', line2: 'Workmanship' },
                 { icon: <Truck className="w-4 h-4" />, line1: 'Reliable Delivery', line2: 'Coordination' },
-                { icon: <ScanLine className="w-4 h-4" />, line1: 'Dental Scanner', line2: 'Solutions' },
                 { icon: <Users className="w-4 h-4" />, line1: 'Direct Case', line2: 'Assistance' },
               ].map((h) => (
-                <div key={h.line1} className="flex items-center gap-2.5">
+                <div
+                  key={h.line1}
+                  className={`flex items-center gap-2.5 ${
+                    h.isNew
+                      ? 'px-2.5 py-1 rounded-xl bg-emerald-500/10 border border-emerald-400/30 shadow-xs'
+                      : ''
+                  }`}
+                >
                   <div
                     className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full border flex items-center justify-center flex-shrink-0 shadow-xs ${
-                      isLight
+                      h.isNew
+                        ? 'border-emerald-400/50 bg-emerald-500/20 text-emerald-300'
+                        : isLight
                         ? 'border-[#DDE0E5] bg-[#F5F6F8] text-[#17191D]'
                         : 'border-white/[0.22] bg-white/[0.06] text-white'
                     }`}
@@ -198,12 +230,23 @@ export const Hero: React.FC<HeroProps> = ({
                     {h.icon}
                   </div>
                   <div>
-                    <div
-                      className={`text-[10.5px] sm:text-[11px] font-semibold leading-tight ${
-                        isLight ? 'text-[#17191D]' : 'text-white'
-                      }`}
-                    >
-                      {h.line1}
+                    <div className="flex items-center gap-1.5">
+                      <span
+                        className={`text-[10.5px] sm:text-[11px] font-semibold leading-tight ${
+                          h.isNew
+                            ? 'text-emerald-300'
+                            : isLight
+                            ? 'text-[#17191D]'
+                            : 'text-white'
+                        }`}
+                      >
+                        {h.line1}
+                      </span>
+                      {h.isNew && (
+                        <span className="px-1 py-0.2 rounded text-[8px] font-mono font-black uppercase bg-emerald-400 text-black">
+                          NEW
+                        </span>
+                      )}
                     </div>
                     <div
                       className={`text-[9.5px] sm:text-[10px] leading-tight ${

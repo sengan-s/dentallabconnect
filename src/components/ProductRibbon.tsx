@@ -9,6 +9,7 @@ interface RibbonCat {
   imageSrc: string;
   fallback: string;
   category: string;
+  badge?: string;
 }
 
 interface ProductRibbonProps {
@@ -18,6 +19,7 @@ interface ProductRibbonProps {
 }
 
 const RIBBON_CATS: RibbonCat[] = [
+  { id: 'ds', name: 'Dental\nScanner', label: 'Dental Scanner Solutions', imageSrc: '/images/categories/dental-scanner.jpg', fallback: '/images/categories/dental-scanner-alt.jpg', category: 'Dental Scanner Solutions', badge: 'NEW' },
   { id: 'rz', name: 'Reliance\nZirconia', label: 'Reliance Zirconia', imageSrc: '/images/categories/reliance-zirconia.jpg', fallback: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=200&q=75', category: 'Reliance Zirconia' },
   { id: 'mc', name: 'Metal\nCeramic', label: 'Metal Ceramic', imageSrc: '/images/categories/metal-ceramic.jpg', fallback: 'https://images.unsplash.com/photo-1629909615184-74f495363b67?auto=format&fit=crop&w=200&q=75', category: 'Metal Ceramic' },
   { id: 'cc', name: 'CAD/CAM\nCeramic', label: 'CAD/CAM Ceramic', imageSrc: '/images/categories/cad-cam-ceramic.jpg', fallback: 'https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?auto=format&fit=crop&w=200&q=75', category: 'CAD/CAM Ceramic' },
@@ -26,7 +28,6 @@ const RIBBON_CATS: RibbonCat[] = [
   { id: 'ca', name: 'Clear\nAligners', label: 'Clear Aligners', imageSrc: '/images/categories/clear-aligners.jpg', fallback: 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=200&q=75', category: 'Clear Aligners' },
   { id: 'ap', name: 'Appliances', label: 'Appliances', imageSrc: '/images/categories/appliances-main.jpg', fallback: 'https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&w=200&q=75', category: 'Appliances' },
   { id: 'pa', name: 'Precision\nAttachment', label: 'Precision Attachment', imageSrc: '/images/categories/precision-attachment.jpg', fallback: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=200&q=75', category: 'Precision Attachment' },
-  { id: 'ds', name: 'Dental\nScanner', label: 'Dental Scanner Solutions', imageSrc: '/images/categories/dental-scanner.jpg', fallback: '/images/categories/dental-scanner-alt.jpg', category: 'Dental Scanner Solutions' },
 ];
 
 export const ProductRibbon: React.FC<ProductRibbonProps> = ({ onSelectCategory, onViewAll, theme = 'obsidian' }) => {
@@ -73,9 +74,14 @@ export const ProductRibbon: React.FC<ProductRibbonProps> = ({ onSelectCategory, 
             >
               {/* Product Thumbnail image — enlarged for clear recognition */}
               <div
-                className="w-full flex items-center justify-center p-0.5 overflow-hidden rounded-lg"
+                className="relative w-full flex items-center justify-center p-0.5 overflow-hidden rounded-lg"
                 style={{ height: '72px' }}
               >
+                {cat.badge && (
+                  <span className="absolute top-0 right-0 z-10 px-1.5 py-0.5 rounded text-[8.5px] font-mono font-extrabold uppercase tracking-wider bg-emerald-400 text-black shadow-md">
+                    {cat.badge}
+                  </span>
+                )}
                 <img
                   src={cat.imageSrc}
                   alt={cat.label}

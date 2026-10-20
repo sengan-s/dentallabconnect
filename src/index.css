@@ -246,19 +246,31 @@
     padding-top: 0.75rem !important;
   }
 
-  /* Hero owner portrait: shrink significantly */
+  /* Hero owner portrait: enlarged by ~35% on mobile phones only, preserving full face & transparent background */
   section#home img[alt*="Saravana Kumar"] {
-    height: clamp(180px, 40vw, 260px) !important;
-    max-height: 260px !important;
+    height: clamp(250px, 62vw, 360px) !important;
+    max-height: 360px !important;
+    width: auto !important;
+    max-width: 92vw !important;
+    object-fit: contain !important;
+    object-position: bottom center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: block !important;
   }
 
   /* Hero owner name (Dancing Script) + brand mono below portrait */
+  section#home .text-center.pt-2\.5 {
+    padding-top: 0.625rem !important;
+  }
   section#home .text-center.pt-2\.5 div:first-child {
-    font-size: 1.5rem !important;
+    font-size: 1.85rem !important;
+    line-height: 1.2 !important;
   }
   section#home .text-center.pt-2\.5 div:last-child {
-    font-size: 0.55rem !important;
-    letter-spacing: 0.2em !important;
+    font-size: 0.65rem !important;
+    letter-spacing: 0.25em !important;
+    margin-top: 0.2rem !important;
   }
 
   /* Product Ribbon: reduce height & image size */
@@ -391,45 +403,49 @@
   }
 
   /* ── 6. WORKFLOW SECTION ───────────────────────────────────
-     py-20 md:py-28, 4-col grid stacks on mobile              */
+     py-16 sm:py-24, 4-col grid displays as 2-col on mobile    */
   section#workflow {
     padding-top: 2rem !important;
     padding-bottom: 2rem !important;
   }
+  section#workflow .mb-12,
   section#workflow .mb-16 {
     margin-bottom: 1.25rem !important;
   }
   section#workflow h2 {
     font-size: 1.35rem !important;
   }
-  /* 4 step cards: 2-col grid on mobile instead of stacked */
+  /* 4 step cards: 2-col grid on mobile */
   section#workflow .grid.grid-cols-1 {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 0.625rem !important;
   }
-  /* Step card images: shorter */
-  section#workflow .h-40 {
-    height: 6rem !important;
-  }
-  section#workflow .p-5 {
-    padding: 0.75rem !important;
+  section#workflow .p-5,
+  section#workflow .p-6,
+  section#workflow .p-7 {
+    padding: 0.875rem 0.75rem !important;
   }
   section#workflow h3 {
-    font-size: 0.78rem !important;
+    font-size: 0.85rem !important;
+    line-height: 1.25 !important;
   }
-  section#workflow p.text-xs {
-    font-size: 0.65rem !important;
+  section#workflow p.text-xs,
+  section#workflow p.text-sm {
+    font-size: 0.6875rem !important;
+    line-height: 1.4 !important;
   }
   /* Workflow CTA banner */
-  section#workflow .mt-12 {
-    margin-top: 1rem !important;
+  section#workflow .mt-10,
+  section#workflow .mt-12,
+  section#workflow .mt-14 {
+    margin-top: 1.25rem !important;
   }
   section#workflow .p-6,
   section#workflow .p-8 {
-    padding: 1rem !important;
+    padding: 1.125rem 1rem !important;
   }
   section#workflow h4 {
-    font-size: 0.875rem !important;
+    font-size: 0.95rem !important;
   }
 
   /* ── 7. CONTACT SECTION ────────────────────────────────────

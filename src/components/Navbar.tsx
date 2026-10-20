@@ -85,8 +85,10 @@ export const Navbar: React.FC<NavbarProps> = ({
   const navLinks = [
     { label: 'Home', view: 'home' as const, sectionId: 'home' },
     { label: 'About Us', view: 'home' as const, sectionId: 'about' },
+    { label: 'Dental Scanner', view: 'home' as const, sectionId: 'scanner', isNew: true },
     { label: 'Our Services', view: 'home' as const, sectionId: 'services' },
     { label: 'Our Products', view: 'products' as const, sectionId: undefined },
+    { label: 'How We Work', view: 'home' as const, sectionId: 'workflow' },
     { label: 'Quality & Delivery', view: 'home' as const, sectionId: 'quality' },
     { label: 'Contact Us', view: 'home' as const, sectionId: 'contact' },
   ];
@@ -99,6 +101,33 @@ export const Navbar: React.FC<NavbarProps> = ({
           : 'bg-[#08090B]/95 backdrop-blur-md border-white/10 shadow-lg'
       }`}
     >
+      {/* Top Dental Scanner Highlight Ribbon */}
+      <div
+        className={`w-full py-1.5 px-3 sm:px-6 text-center text-[11px] sm:text-xs font-medium border-b flex items-center justify-center gap-2 sm:gap-3 transition-colors ${
+          isLight
+            ? 'bg-[#F4F5F7] border-[#E5E7EB] text-[#17191D]'
+            : 'bg-[#101217] border-white/10 text-white'
+        }`}
+      >
+        <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[9.5px] font-mono font-bold uppercase tracking-wider bg-emerald-400 text-black shrink-0 shadow-xs">
+          <span className="w-1.5 h-1.5 rounded-full bg-black animate-pulse" />
+          NEW
+        </span>
+        <span className="truncate">
+          <strong className="font-semibold text-white">Dental Scanner Solutions</strong>
+          <span className="hidden md:inline text-inherit opacity-80"> — Advanced intraoral digital impressions &amp; streamlined lab workflow.</span>
+        </span>
+        <a
+          href="https://wa.me/917639664119?text=Hello%20Saravana%20Kumar%2C%20I%20would%20like%20to%20enquire%20about%20Dental%20Scanner%20Solutions%20at%20Dental%20Lab%20Connect."
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-400 hover:text-emerald-300 underline underline-offset-2 shrink-0 ml-1"
+        >
+          <span>Enquire on WhatsApp</span>
+          <ArrowUpRight className="w-3 h-3" />
+        </a>
+      </div>
+
       <div className="w-full max-w-[1560px] mx-auto px-6 sm:px-10 lg:px-12 h-16 sm:h-[70px] flex items-center justify-between gap-6">
         {/* Brand Logo & Name */}
         <a
@@ -166,7 +195,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   key={link.label}
                   type="button"
                   onClick={(e) => handleLinkClick(e, link.view, link.sectionId)}
-                  className={`transition-colors whitespace-nowrap shrink-0 py-1 relative cursor-pointer ${
+                  className={`inline-flex items-center gap-1.5 transition-colors whitespace-nowrap shrink-0 py-1 relative cursor-pointer ${
                     isLight
                       ? isActive
                         ? 'text-[#17191D] font-semibold after:w-full'
@@ -178,7 +207,12 @@ export const Navbar: React.FC<NavbarProps> = ({
                     isLight ? 'after:bg-[#17191D]' : 'after:bg-white'
                   } hover:after:w-full after:transition-all after:duration-200`}
                 >
-                  {link.label}
+                  <span>{link.label}</span>
+                  {link.isNew && (
+                    <span className="px-1.5 py-0.2 rounded text-[8.5px] font-mono font-bold uppercase tracking-wider bg-emerald-400 text-black shadow-xs">
+                      NEW
+                    </span>
+                  )}
                 </button>
               );
             })}
@@ -431,13 +465,18 @@ export const Navbar: React.FC<NavbarProps> = ({
                 key={link.label}
                 type="button"
                 onClick={(e) => handleLinkClick(e, link.view, link.sectionId)}
-                className={`text-left px-3 py-2.5 rounded-lg text-sm font-medium transition-colors cursor-pointer ${
+                className={`flex items-center justify-between text-left px-3 py-2.5 rounded-lg text-sm font-medium transition-colors cursor-pointer ${
                   isLight
                     ? 'text-[#333742] hover:text-[#17191D] hover:bg-[#F5F6F8]'
                     : 'text-[#C0C4CA] hover:text-white hover:bg-white/5'
                 }`}
               >
-                {link.label}
+                <span>{link.label}</span>
+                {link.isNew && (
+                  <span className="px-1.5 py-0.5 rounded text-[9px] font-mono font-extrabold uppercase bg-emerald-400 text-black">
+                    NEW
+                  </span>
+                )}
               </button>
             ))}
           </nav>

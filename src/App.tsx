@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
+import { DentalScannerSpotlight } from './components/DentalScannerSpotlight';
 import { AboutSection } from './components/AboutSection';
-import { LabWorkflowSection } from './components/LabWorkflowSection';
+import { HowWeWorkSection } from './components/HowWeWorkSection';
 import { ServicesOverview } from './components/ServicesOverview';
 import { QualityDeliverySection } from './components/QualityDeliverySection';
 import { ContactSection } from './components/ContactSection';
@@ -54,6 +55,8 @@ export default function App() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else if (
         hash === '#about' ||
+        hash === '#scanner' ||
+        hash === '#dental-scanner' ||
         hash === '#services' ||
         hash === '#quality' ||
         hash === '#delivery' ||
@@ -63,7 +66,7 @@ export default function App() {
         hash === '#home'
       ) {
         setCurrentView('home');
-        const targetId = hash.replace('#', '');
+        const targetId = hash.replace('#', '') === 'dental-scanner' ? 'scanner' : hash.replace('#', '');
         setTimeout(() => {
           const el = document.getElementById(targetId);
           if (el) el.scrollIntoView({ behavior: 'smooth' });
@@ -165,7 +168,13 @@ export default function App() {
               onSelectCategory={handleServiceOverviewClick}
             />
 
-            {/* B. About Us */}
+            {/* B. Featured Dental Scanner Solutions Spotlight */}
+            <DentalScannerSpotlight
+              theme={theme}
+              onNavigateToProducts={handleServiceOverviewClick}
+            />
+
+            {/* C. About Us */}
             <AboutSection />
 
             {/* C. Our Services (6 Core Laboratory Disciplines) */}
@@ -174,8 +183,12 @@ export default function App() {
             {/* D. Quality, On-Time Completion & Reliable Delivery */}
             <QualityDeliverySection onEnquire={() => handleNavigate('home', 'contact')} />
 
-            {/* F. How We Work (4-Step Laboratory Workflow) */}
-            <LabWorkflowSection onEnquire={() => handleNavigate('home', 'contact')} />
+            {/* F. How We Work (Dedicated 4-Step Partnership Workflow Module) */}
+            <HowWeWorkSection
+              theme={theme}
+              onExploreProducts={() => handleNavigate('products')}
+              onEnquire={() => handleNavigate('home', 'contact')}
+            />
 
             {/* G. Contact Information & Direct Enquiry Form */}
             <ContactSection
