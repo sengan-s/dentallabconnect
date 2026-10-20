@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { ArrowRight, MessageCircle, Gem, Truck, Users } from 'lucide-react';
+import { ArrowRight, MessageCircle, Gem, Truck, Users, ScanLine } from 'lucide-react';
 import { ProductRibbon } from './ProductRibbon';
 import { AppTheme } from '../types';
 
@@ -82,7 +82,7 @@ export const Hero: React.FC<HeroProps> = ({
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-7 flex flex-col items-start space-y-3.5 sm:space-y-4 text-left"
+            className="lg:col-span-7 flex flex-col items-start space-y-2.5 sm:space-y-4 text-left"
           >
             {/* 1. Introductory Label */}
             <div
@@ -100,7 +100,7 @@ export const Hero: React.FC<HeroProps> = ({
             <h1
               className="font-extrabold font-['Outfit'] tracking-tight leading-[1.05] text-left"
               style={{
-                fontSize: 'clamp(2.6rem, 4.8vw, 4.75rem)',
+                fontSize: 'clamp(1.9rem, 9vw, 4.75rem)',
                 color: isLight ? '#17191D' : '#FFFFFF',
               }}
             >
@@ -184,6 +184,7 @@ export const Hero: React.FC<HeroProps> = ({
               {[
                 { icon: <Gem className="w-4 h-4" />, line1: 'Quality-Focused', line2: 'Workmanship' },
                 { icon: <Truck className="w-4 h-4" />, line1: 'Reliable Delivery', line2: 'Coordination' },
+                { icon: <ScanLine className="w-4 h-4" />, line1: 'Dental Scanner', line2: 'Solutions' },
                 { icon: <Users className="w-4 h-4" />, line1: 'Direct Case', line2: 'Assistance' },
               ].map((h) => (
                 <div key={h.line1} className="flex items-center gap-2.5">
@@ -240,7 +241,7 @@ export const Hero: React.FC<HeroProps> = ({
                   alt="Saravana Kumar — Dental Lab Connect"
                   className="w-auto object-contain object-bottom mx-auto transition-all duration-300"
                   style={{
-                    height: 'clamp(380px, 58vh, 670px)',
+                    height: 'clamp(160px, 42vw, 670px)',
                     maxHeight: 'min(76vh, 670px)',
                     maxWidth: '100%',
                     aspectRatio: '778/1024',

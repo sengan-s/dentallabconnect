@@ -97,7 +97,7 @@ export const QualityDeliverySection: React.FC<QualityDeliverySectionProps> = ({ 
           </motion.div>
 
           {/* ── Three Highlight Cards ───────────────────────────────────── */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
             {highlights.map((card, idx) => (
               <motion.div
                 key={card.id}

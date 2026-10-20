@@ -460,6 +460,78 @@ export const ProductCatalogue: React.FC<ProductCatalogueProps> = ({
                 </div>
               )}
 
+              {/* ── Dental Scanner Solutions – Premium Featured Panel ── */}
+              {selectedCategory === 'Dental Scanner Solutions' && !isSearchActive && (
+                <div className="pt-2 border-t border-white/5 space-y-5">
+                  {/* Large scanner image */}
+                  <div className="relative w-full rounded-2xl overflow-hidden border border-[#C0C4CA]/20 shadow-2xl" style={{ height: '340px' }}>
+                    <img
+                      src="/images/categories/dental-scanner.jpg"
+                      alt="Advanced intraoral dental scanner wand and dental stone cast in modern laboratory"
+                      className="w-full h-full object-cover object-center"
+                      loading="lazy"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src = '/images/categories/dental-scanner-alt.jpg';
+                      }}
+                    />
+                    {/* Bottom vignette */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#111317] via-[#111317]/30 to-transparent pointer-events-none" />
+                    {/* Availability badge */}
+                    <div className="absolute top-4 left-4 z-10">
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-semibold uppercase tracking-wider bg-[#08090B]/90 text-[#E5E7EB] border border-white/20 backdrop-blur-md shadow-lg">
+                        <span className="w-2 h-2 rounded-full bg-[#C0C4CA] animate-pulse" />
+                        Available on Direct Enquiry
+                      </span>
+                    </div>
+                    {/* Bottom overlay text */}
+                    <div className="absolute bottom-5 left-5 right-5 z-10">
+                      <p className="text-xs text-[#A0A5AE] font-light leading-relaxed max-w-xl">
+                        Advanced dental scanning solutions for accurate digital impressions and streamlined dental laboratory workflows.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Feature highlights grid */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                    {[
+                      { title: 'Digital Impressions', desc: 'Accurate intraoral scanning for digital workflow integration.' },
+                      { title: 'Laboratory Integration', desc: 'Seamlessly connects with CAD/CAM and digital fabrication workflows.' },
+                      { title: 'Available on Enquiry', desc: 'Contact Saravana Kumar directly to discuss compatibility and availability.' },
+                    ].map((feat) => (
+                      <div key={feat.title} className="p-4 rounded-xl bg-black/30 border border-white/5 space-y-1.5">
+                        <div className="flex items-center gap-2">
+                          <Check className="w-3.5 h-3.5 text-[#C0C4CA] shrink-0" />
+                          <span className="text-xs font-semibold text-white">{feat.title}</span>
+                        </div>
+                        <p className="text-xs text-[#8E95A2] font-light leading-relaxed pl-5">{feat.desc}</p>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* WhatsApp CTA */}
+                  <div className="flex flex-wrap items-center gap-3">
+                    <a
+                      href="https://wa.me/917639664119?text=Hello%20Saravana%20Kumar%2C%20I%20would%20like%20to%20enquire%20about%20Dental%20Scanner%20Solutions%20at%20Dental%20Lab%20Connect."
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      id="scanner-whatsapp-enquiry"
+                      className="metallic-button inline-flex items-center gap-2.5 px-6 py-3 rounded-xl text-sm font-semibold cursor-pointer shadow-lg transition-all"
+                      aria-label="Enquire about Dental Scanner Solutions on WhatsApp"
+                    >
+                      <MessageCircle className="w-4 h-4 text-[#08090B]" />
+                      <span className="text-[#08090B]">Enquire on WhatsApp</span>
+                    </a>
+                    <a
+                      href="tel:+917639664119"
+                      className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-mono font-semibold text-white transition-colors"
+                    >
+                      <Phone className="w-3.5 h-3.5 text-[#C0C4CA]" />
+                      <span>Call: 7639664119</span>
+                    </a>
+                  </div>
+                </div>
+              )}
+
               {/* Search & Layout Control Bar */}
               <div className="pt-4 border-t border-white/10 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
                 {/* Search within this category */}

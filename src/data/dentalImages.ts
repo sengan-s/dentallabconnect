@@ -83,6 +83,20 @@ export const LAB_WORKFLOW_STEPS: WorkflowStepMeta[] = [
 
 // 4. Photorealistic Laboratory Category Images for the 9 Main Categories and Subcategories
 export const CATEGORY_REALISTIC_IMAGES: Record<string, DentalImageMeta> = {
+  'Dental Scanner Solutions': {
+    src: '/images/categories/dental-scanner.jpg',
+    fallbackSrc: '/images/categories/dental-scanner-alt.jpg',
+    alt: 'Advanced dental intraoral scanner wand resting on metallic stand in modern dental laboratory',
+    badge: 'Dental Scanner Solutions',
+    description: 'Advanced dental scanning solutions for accurate digital impressions and streamlined dental laboratory workflows.',
+  },
+  'Dental Scanner': {
+    src: '/images/categories/dental-scanner.jpg',
+    fallbackSrc: '/images/categories/dental-scanner-alt.jpg',
+    alt: 'Advanced dental intraoral scanner wand resting on metallic stand in modern dental laboratory',
+    badge: 'Dental Scanner Solutions',
+    description: 'Advanced dental scanning solutions for accurate digital impressions and streamlined dental laboratory workflows.',
+  },
   'Reliance Zirconia': {
     src: '/images/categories/reliance-zirconia.jpg',
     fallbackSrc: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=800&q=80',
@@ -259,6 +273,9 @@ export function getProductRealisticImage(categoryName: string, subcategoryName?:
   }
   if (term.includes('maxillary') || term.includes('head gear')) {
     return CATEGORY_REALISTIC_IMAGES['Maxillary Intrusion Splints'];
+  }
+  if (term.includes('scanner') || term.includes('digital impression') || term.includes('intraoral')) {
+    return CATEGORY_REALISTIC_IMAGES['Dental Scanner Solutions'];
   }
 
   return CATEGORY_REALISTIC_IMAGES['Reliance Zirconia'];

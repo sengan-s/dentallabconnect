@@ -28,6 +28,7 @@ export const MAIN_CATEGORIES = [
   "Precision Attachment",
   "Clear Aligners",
   "Appliances",
+  "Dental Scanner Solutions",
 ] as const;
 
 export type MainCategoryType = (typeof MAIN_CATEGORIES)[number];
@@ -125,9 +126,32 @@ export const CATEGORY_MODULES: CategoryModuleDefinition[] = [
     image: "/images/categories/appliances-main.jpg",
     badge: "146 Products",
   },
+  {
+    id: "dental-scanner-solutions",
+    name: "Dental Scanner Solutions",
+    subtitle: "Digital Impressions & Scanning Workflows",
+    description: "Advanced dental scanning solutions for accurate digital impressions and streamlined dental laboratory workflows. Available on direct enquiry.",
+    image: "/images/categories/dental-scanner.jpg",
+    badge: "Enquire for Availability",
+  },
 ];
 
 export const ALL_PRODUCTS: ProductItem[] = [
+  {
+    "id": "p-scanner-01",
+    "name": "DENTAL SCANNER SOLUTIONS",
+    "category": "Dental Scanner Solutions",
+    "subcategory": "Dental Scanner",
+    "pdfPage": 1,
+    "description": "Advanced dental scanning solutions for accurate digital impressions and streamlined dental laboratory workflows. Contact us directly for availability and compatibility details.",
+    "features": [
+      "Digital impression workflows",
+      "Streamlined laboratory integration",
+      "Accurate intraoral scanning",
+      "Compatible with CAD/CAM workflows",
+      "Available on direct enquiry"
+    ]
+  },
   {
     "id": "p-001",
     "name": "RELIANCE ZIRCONIA LIFE HT",

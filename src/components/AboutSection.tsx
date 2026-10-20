@@ -10,7 +10,7 @@ interface AboutSectionProps {
 
 export const AboutSection: React.FC<AboutSectionProps> = ({ onBackToHome }) => {
   return (
-    <section id="about" className="py-24 sm:py-28 bg-[#0D0F13] border-t border-b border-white/10 relative min-h-[calc(100vh-80px)]">
+    <section id="about" className="py-24 sm:py-28 bg-[#0D0F13] border-t border-b border-white/10 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         {onBackToHome && (
           <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-white/10">

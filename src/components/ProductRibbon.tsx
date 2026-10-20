@@ -26,6 +26,7 @@ const RIBBON_CATS: RibbonCat[] = [
   { id: 'ca', name: 'Clear\nAligners', label: 'Clear Aligners', imageSrc: '/images/categories/clear-aligners.jpg', fallback: 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=200&q=75', category: 'Clear Aligners' },
   { id: 'ap', name: 'Appliances', label: 'Appliances', imageSrc: '/images/categories/appliances-main.jpg', fallback: 'https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&w=200&q=75', category: 'Appliances' },
   { id: 'pa', name: 'Precision\nAttachment', label: 'Precision Attachment', imageSrc: '/images/categories/precision-attachment.jpg', fallback: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=200&q=75', category: 'Precision Attachment' },
+  { id: 'ds', name: 'Dental\nScanner', label: 'Dental Scanner Solutions', imageSrc: '/images/categories/dental-scanner.jpg', fallback: '/images/categories/dental-scanner-alt.jpg', category: 'Dental Scanner Solutions' },
 ];
 
 export const ProductRibbon: React.FC<ProductRibbonProps> = ({ onSelectCategory, onViewAll, theme = 'obsidian' }) => {

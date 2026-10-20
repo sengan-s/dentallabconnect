@@ -182,3 +182,371 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #3B3F48;
 }
+
+/* ============================================================
+   MOBILE OPTIMISATION  — max-width: 767px only
+   Desktop (768px+) layout is 100% untouched.
+   ============================================================ */
+@media (max-width: 767px) {
+
+  /* ── 1. NAVBAR ─────────────────────────────────────────────
+     Tighten the sticky header height and hide the subtitle
+     line under the brand name to save vertical space.       */
+  header .flex.flex-col.justify-center .text-\[9\.5px\] {
+    display: none !important;
+  }
+
+  /* ── 2. HERO SECTION ───────────────────────────────────────
+     The hero has min-h-[calc(100vh-70px)] which makes it a
+     full viewport tall on mobile. Shrink it so the hero fits
+     without filling the whole screen.                        */
+  section#home {
+    min-height: unset !important;
+    padding-top: 1.25rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+
+  /* Hero grid: force a compact stacked layout */
+  section#home > div.relative.z-20 > div.grid {
+    gap: 1rem !important;
+  }
+
+  /* Hero heading: limit size on small phones */
+  section#home h1 {
+    font-size: clamp(2rem, 10vw, 2.6rem) !important;
+    line-height: 1.08 !important;
+  }
+
+  /* Hero subtitle & description: tighter spacing */
+  section#home p.font-semibold {
+    font-size: 0.875rem !important;
+    margin-top: 0.25rem !important;
+  }
+  section#home p.text-xs,
+  section#home p.text-sm {
+    font-size: 0.75rem !important;
+    line-height: 1.5 !important;
+    max-width: 100% !important;
+  }
+
+  /* Hero action buttons: narrower gap */
+  section#home .flex.flex-wrap.items-center.gap-3.pt-0\.5 {
+    gap: 0.5rem !important;
+  }
+  section#home .flex.flex-wrap.items-center.gap-3.pt-0\.5 a,
+  section#home .flex.flex-wrap.items-center.gap-3.pt-0\.5 button {
+    padding: 0.6rem 1rem !important;
+    font-size: 0.7rem !important;
+  }
+
+  /* Hero feature highlights bar: tighter */
+  section#home .flex.flex-wrap.items-center.gap-5,
+  section#home .flex.flex-wrap.items-center.gap-7 {
+    gap: 0.75rem !important;
+    padding-top: 0.75rem !important;
+  }
+
+  /* Hero owner portrait: shrink significantly */
+  section#home img[alt*="Saravana Kumar"] {
+    height: clamp(180px, 40vw, 260px) !important;
+    max-height: 260px !important;
+  }
+
+  /* Hero owner name (Dancing Script) + brand mono below portrait */
+  section#home .text-center.pt-2\.5 div:first-child {
+    font-size: 1.5rem !important;
+  }
+  section#home .text-center.pt-2\.5 div:last-child {
+    font-size: 0.55rem !important;
+    letter-spacing: 0.2em !important;
+  }
+
+  /* Product Ribbon: reduce height & image size */
+  section#home + div .flex.items-stretch button,
+  section#home + div .flex.items-stretch a {
+    min-width: 90px !important;
+    max-width: 115px !important;
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+  }
+
+  /* ── 3. ABOUT SECTION ──────────────────────────────────────
+     section has min-h-[calc(100vh-80px)] and py-24 sm:py-28  */
+  section#about {
+    padding-top: 2.5rem !important;
+    padding-bottom: 2.5rem !important;
+    min-height: unset !important;
+  }
+  section#about .grid {
+    gap: 1.5rem !important;
+  }
+  /* Lab visual panel on mobile: shorter image */
+  section#about .h-64,
+  section#about .h-72 {
+    height: 11rem !important;
+  }
+  section#about h2 {
+    font-size: 1.5rem !important;
+  }
+  section#about p.text-base,
+  section#about p.text-lg {
+    font-size: 0.8125rem !important;
+  }
+  /* Capability pillars: 2-col compact */
+  section#about .grid.grid-cols-1.sm\:grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.625rem !important;
+  }
+  section#about .grid.grid-cols-1.sm\:grid-cols-2 > div {
+    padding: 0.75rem !important;
+  }
+  section#about .grid.grid-cols-1.sm\:grid-cols-2 h3 {
+    font-size: 0.7rem !important;
+  }
+  section#about .grid.grid-cols-1.sm\:grid-cols-2 p {
+    font-size: 0.65rem !important;
+  }
+
+  /* ── 4. SERVICES SECTION ───────────────────────────────────
+     py-20 sm:py-24, 3-col grid → compact 1-col on mobile     */
+  section#services {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+  section#services .space-y-10 {
+    gap: 1.25rem !important;
+  }
+  section#services h2 {
+    font-size: 1.4rem !important;
+  }
+  section#services p.text-sm,
+  section#services p.text-base {
+    font-size: 0.75rem !important;
+  }
+  /* Service card images: shorter on mobile */
+  section#services .h-44 {
+    height: 9rem !important;
+  }
+  /* Service cards: less padding */
+  section#services .p-5,
+  section#services .p-6 {
+    padding: 0.875rem !important;
+  }
+  section#services h3 {
+    font-size: 0.875rem !important;
+  }
+
+  /* ── 5. QUALITY DELIVERY SECTION ──────────────────────────
+     Two sub-sections: py-20 sm:py-28 each                    */
+  section#quality,
+  section#delivery {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+  section#quality .space-y-14,
+  section#delivery .space-y-16 {
+    gap: 1.25rem !important;
+  }
+  section#quality h2,
+  section#delivery h2 {
+    font-size: 1.35rem !important;
+    line-height: 1.25 !important;
+  }
+  section#quality p.text-sm,
+  section#quality p.text-base,
+  section#delivery p.text-sm,
+  section#delivery p.text-base {
+    font-size: 0.75rem !important;
+    line-height: 1.55 !important;
+  }
+  /* Quality highlight cards: shorter image + less body padding */
+  section#quality .h-44,
+  section#quality .h-48 {
+    height: 8rem !important;
+  }
+  section#quality .p-6.space-y-4 {
+    padding: 0.875rem !important;
+    gap: 0.625rem !important;
+  }
+  /* Delivery section image */
+  section#delivery .h-72,
+  section#delivery .h-80 {
+    height: 10rem !important;
+  }
+  /* Delivery 4-point grid: compact 2-col */
+  section#delivery .grid.grid-cols-1.sm\:grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.5rem !important;
+  }
+  section#delivery .grid.grid-cols-1.sm\:grid-cols-2 .p-4 {
+    padding: 0.625rem !important;
+  }
+  /* CTA banner */
+  section#delivery .p-8,
+  section#delivery .p-12 {
+    padding: 1.25rem !important;
+  }
+  section#delivery h3 {
+    font-size: 1.05rem !important;
+  }
+
+  /* ── 6. WORKFLOW SECTION ───────────────────────────────────
+     py-20 md:py-28, 4-col grid stacks on mobile              */
+  section#workflow {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+  section#workflow .mb-16 {
+    margin-bottom: 1.25rem !important;
+  }
+  section#workflow h2 {
+    font-size: 1.35rem !important;
+  }
+  /* 4 step cards: 2-col grid on mobile instead of stacked */
+  section#workflow .grid.grid-cols-1 {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.625rem !important;
+  }
+  /* Step card images: shorter */
+  section#workflow .h-40 {
+    height: 6rem !important;
+  }
+  section#workflow .p-5 {
+    padding: 0.75rem !important;
+  }
+  section#workflow h3 {
+    font-size: 0.78rem !important;
+  }
+  section#workflow p.text-xs {
+    font-size: 0.65rem !important;
+  }
+  /* Workflow CTA banner */
+  section#workflow .mt-12 {
+    margin-top: 1rem !important;
+  }
+  section#workflow .p-6,
+  section#workflow .p-8 {
+    padding: 1rem !important;
+  }
+  section#workflow h4 {
+    font-size: 0.875rem !important;
+  }
+
+  /* ── 7. CONTACT SECTION ────────────────────────────────────
+     py-20 md:py-28                                            */
+  section#contact {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+  section#contact .grid {
+    gap: 1.5rem !important;
+  }
+  section#contact h2 {
+    font-size: 1.4rem !important;
+  }
+
+  /* ── 8. PRODUCT CATALOGUE ──────────────────────────────────
+     Catalogue category cards: use 2-col grid on mobile       */
+  section#products {
+    padding-top: 1.5rem !important;
+    padding-bottom: 2rem !important;
+  }
+  section#products h2 {
+    font-size: 1.35rem !important;
+  }
+  /* Category overview grid: 2-col */
+  section#products .grid.grid-cols-1.sm\:grid-cols-2.lg\:grid-cols-3 {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.625rem !important;
+  }
+  /* Category card images: shorter */
+  section#products .h-44,
+  section#products .h-48 {
+    height: 8rem !important;
+  }
+  section#products .p-5.space-y-2 {
+    padding: 0.75rem !important;
+  }
+  section#products h3 {
+    font-size: 0.8rem !important;
+    line-height: 1.2 !important;
+  }
+  section#products p.text-xs {
+    font-size: 0.62rem !important;
+  }
+  /* Product item cards (inside a category): 2-col grid */
+  section#products .grid.grid-cols-1.sm\:grid-cols-2.lg\:grid-cols-3.xl\:grid-cols-4 {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.5rem !important;
+  }
+  section#products .p-4.sm\:p-5 {
+    padding: 0.625rem !important;
+  }
+  /* Product card images: shorter */
+  section#products .h-36,
+  section#products .h-40 {
+    height: 7rem !important;
+  }
+
+  /* ── 9. PRODUCT RIBBON (hero bottom) ────────────────────── */
+  /* Ribbon tile buttons: more compact */
+  .scrollbar-none button,
+  .scrollbar-none a {
+    min-width: 76px !important;
+    max-width: 100px !important;
+    padding-left: 0.375rem !important;
+    padding-right: 0.375rem !important;
+  }
+  /* Ribbon image container: slightly shorter */
+  .scrollbar-none button > div,
+  .scrollbar-none a > div {
+    height: 52px !important;
+  }
+
+  /* ── 10. FOOTER ─────────────────────────────────────────── */
+  footer {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+  footer .grid {
+    gap: 1.5rem !important;
+  }
+  footer .pb-12 {
+    padding-bottom: 1.5rem !important;
+  }
+
+  /* ── 11. GLOBAL SECTION SPACING TRIM ──────────────────────
+     Any remaining large top/bottom paddings on section-level
+     wrapper divs that use space-y-* utilities.               */
+  .space-y-12 {
+    gap: 1.5rem !important;
+  }
+  .space-y-10 {
+    gap: 1rem !important;
+  }
+
+  /* ── 12. FLOATING WHATSAPP BUTTON ─────────────────────────
+     Reduce size slightly so it doesn't obstruct content      */
+  aside.fixed.bottom-6.right-6 a {
+    padding: 0.625rem 0.875rem !important;
+    border-radius: 9999px !important;
+  }
+  aside.fixed.bottom-6.right-6 a span {
+    display: none !important;
+  }
+  aside.fixed.bottom-6 {
+    bottom: 1rem !important;
+    right: 0.875rem !important;
+  }
+
+  /* ── 13. GENERAL OVERFLOW GUARD ───────────────────────────
+     Prevent any element from causing horizontal scroll       */
+  body, #root {
+    overflow-x: hidden !important;
+  }
+  .max-w-\[1560px\],
+  .max-w-\[1520px\],
+  .max-w-\[1600px\] {
+    max-width: 100% !important;
+  }
+}
