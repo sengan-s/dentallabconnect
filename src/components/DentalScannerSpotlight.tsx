@@ -33,7 +33,7 @@ export const DentalScannerSpotlight: React.FC<DentalScannerSpotlightProps> = ({
         <div
           className="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] rounded-full blur-[120px] opacity-25"
           style={{
-            background: 'radial-gradient(circle, rgba(16, 185, 129, 0.4) 0%, rgba(192, 196, 202, 0.2) 50%, transparent 80%)',
+            background: 'radial-gradient(circle, rgba(255, 255, 255, 0.25) 0%, rgba(192, 196, 202, 0.15) 50%, transparent 80%)',
           }}
         />
       </div>
@@ -52,7 +52,7 @@ export const DentalScannerSpotlight: React.FC<DentalScannerSpotlightProps> = ({
           }`}
         >
           {/* Subtle top edge glow */}
-          <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-emerald-400/60 to-transparent" />
+          <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-white/50 to-transparent" />
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Visual Column */}
@@ -80,17 +80,17 @@ export const DentalScannerSpotlight: React.FC<DentalScannerSpotlightProps> = ({
                 {/* Overlaid Badges */}
                 <div className="absolute top-3 left-3 z-10 flex flex-wrap items-center gap-2">
                   <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[10px] font-mono font-bold uppercase tracking-wider bg-black/80 text-white border border-white/20 backdrop-blur-md shadow-md">
-                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                    <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
                     Digital Scanning
                   </span>
-                  <span className="inline-flex items-center px-2 py-0.5 rounded-md text-[9px] font-mono font-bold uppercase tracking-wider bg-emerald-500 text-black shadow-md">
+                  <span className="inline-flex items-center px-2 py-0.5 rounded-md text-[9px] font-mono font-bold uppercase tracking-wider bg-white text-black shadow-md">
                     New Solution
                   </span>
                 </div>
 
                 <div className="absolute bottom-3 left-3 right-3 z-10 flex items-center justify-between text-[11px] font-mono text-white/90 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/10">
                   <span className="truncate">Intraoral Scanning Device</span>
-                  <span className="text-emerald-300 font-semibold shrink-0">Available on Enquiry</span>
+                  <span className="text-white font-semibold shrink-0">Available on Enquiry</span>
                 </div>
               </div>
             </div>
@@ -99,7 +99,11 @@ export const DentalScannerSpotlight: React.FC<DentalScannerSpotlightProps> = ({
             <div className="lg:col-span-7 flex flex-col justify-center space-y-5 order-1 lg:order-2 text-left">
               {/* Header Tags */}
               <div className="flex flex-wrap items-center gap-2.5">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/15 border border-emerald-500/30 text-emerald-400">
+                <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold ${
+                  isLight
+                    ? 'bg-[#F0F2F5] border border-[#CCD1DA] text-[#17191D]'
+                    : 'bg-white/10 border border-white/20 text-white'
+                }`}>
                   <Sparkles className="w-3.5 h-3.5" />
                   <span>Featured Innovation</span>
                 </span>
@@ -154,8 +158,8 @@ export const DentalScannerSpotlight: React.FC<DentalScannerSpotlightProps> = ({
                         : 'bg-white/[0.03] border-white/10'
                     }`}
                   >
-                    <div className="flex items-center gap-1.5 text-xs font-bold text-emerald-400 mb-1">
-                      <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
+                    <div className="flex items-center gap-1.5 text-xs font-bold text-white mb-1">
+                      <CheckCircle2 className={`w-3.5 h-3.5 shrink-0 ${isLight ? 'text-[#17191D]' : 'text-white'}`} />
                       <span className={isLight ? 'text-[#17191D]' : 'text-white'}>{item.title}</span>
                     </div>
                     <p className={`text-[11px] leading-snug ${isLight ? 'text-[#6B7280]' : 'text-[#8E95A2]'}`}>
@@ -171,7 +175,11 @@ export const DentalScannerSpotlight: React.FC<DentalScannerSpotlightProps> = ({
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer shadow-lg bg-[#25D366] hover:bg-[#20BD5A] text-white active:scale-[0.98]"
+                  className={`inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer shadow-lg active:scale-[0.98] ${
+                    isLight
+                      ? 'bg-[#17191D] hover:bg-[#2C313A] text-white shadow-[0_4px_16px_rgba(23,25,29,0.2)]'
+                      : 'metallic-button text-[#08090B]'
+                  }`}
                   aria-label="Enquire about Dental Scanner Solutions on WhatsApp"
                 >
                   <MessageCircle className="w-4 h-4" />
@@ -188,7 +196,7 @@ export const DentalScannerSpotlight: React.FC<DentalScannerSpotlightProps> = ({
                         : 'bg-white/5 hover:bg-white/10 text-white border-white/15'
                     }`}
                   >
-                    <Layers className="w-4 h-4 text-emerald-400" />
+                    <Layers className="w-4 h-4 text-white" />
                     <span>View Scanner Products</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>

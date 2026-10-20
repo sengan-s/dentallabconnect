@@ -246,12 +246,13 @@
     padding-top: 0.75rem !important;
   }
 
-  /* Hero owner portrait: enlarged by ~35% on mobile phones only, preserving full face & transparent background */
+  /* Hero owner portrait: enlarged by ~35–45% on mobile phones only, preserving full face & transparent background */
   section#home img[alt*="Saravana Kumar"] {
-    height: clamp(250px, 62vw, 360px) !important;
-    max-height: 360px !important;
+    height: clamp(330px, 84vw, 470px) !important;
+    max-height: 470px !important;
     width: auto !important;
-    max-width: 92vw !important;
+    max-width: 95vw !important;
+    aspect-ratio: 778/1024 !important;
     object-fit: contain !important;
     object-position: bottom center !important;
     margin-left: auto !important;
@@ -260,14 +261,15 @@
   }
 
   /* Hero owner name (Dancing Script) + brand mono below portrait */
+  section#home .text-center.pt-2,
   section#home .text-center.pt-2\.5 {
     padding-top: 0.625rem !important;
   }
-  section#home .text-center.pt-2\.5 div:first-child {
-    font-size: 1.85rem !important;
-    line-height: 1.2 !important;
+  section#home .text-center div:first-child[style*="Dancing Script"] {
+    font-size: 2.1rem !important;
+    line-height: 1.15 !important;
   }
-  section#home .text-center.pt-2\.5 div:last-child {
+  section#home .text-center div.font-mono {
     font-size: 0.65rem !important;
     letter-spacing: 0.25em !important;
     margin-top: 0.2rem !important;
@@ -275,11 +277,13 @@
 
   /* Product Ribbon: reduce height & image size */
   section#home + div .flex.items-stretch button,
-  section#home + div .flex.items-stretch a {
-    min-width: 90px !important;
-    max-width: 115px !important;
-    padding-top: 0.5rem !important;
-    padding-bottom: 0.5rem !important;
+  section#home + div .flex.items-stretch a,
+  section#home .scrollbar-none button,
+  section#home .scrollbar-none a {
+    min-width: 82px !important;
+    max-width: 108px !important;
+    padding-top: 0.4rem !important;
+    padding-bottom: 0.4rem !important;
   }
 
   /* ── 3. ABOUT SECTION ──────────────────────────────────────
@@ -470,38 +474,72 @@
   section#products h2 {
     font-size: 1.35rem !important;
   }
-  /* Category overview grid: 2-col */
+  /* Category overview grid: single card per row on small phones, 2-col on tablets */
   section#products .grid.grid-cols-1.sm\:grid-cols-2.lg\:grid-cols-3 {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 0.625rem !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 1rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
-  /* Category card images: shorter */
+  @media (min-width: 600px) and (max-width: 767px) {
+    section#products .grid.grid-cols-1.sm\:grid-cols-2.lg\:grid-cols-3 {
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+  }
+
+  /* Category card images */
   section#products .h-44,
   section#products .h-48 {
-    height: 8rem !important;
+    height: 10rem !important;
   }
   section#products .p-5.space-y-2 {
-    padding: 0.75rem !important;
+    padding: 0.875rem !important;
   }
   section#products h3 {
-    font-size: 0.8rem !important;
-    line-height: 1.2 !important;
+    font-size: 1rem !important;
+    line-height: 1.3 !important;
   }
   section#products p.text-xs {
-    font-size: 0.62rem !important;
+    font-size: 0.75rem !important;
   }
-  /* Product item cards (inside a category): 2-col grid */
+
+  /* ── PRODUCT ITEM CARDS: EXACTLY ONE CARD PER ROW BELOW 600px ──
+     Full width, min-width 0, box-sizing border-box, zero overflow */
   section#products .grid.grid-cols-1.sm\:grid-cols-2.lg\:grid-cols-3.xl\:grid-cols-4 {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 0.5rem !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 1rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
-  section#products .p-4.sm\:p-5 {
-    padding: 0.625rem !important;
+  @media (min-width: 600px) and (max-width: 767px) {
+    section#products .grid.grid-cols-1.sm\:grid-cols-2.lg\:grid-cols-3.xl\:grid-cols-4 {
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
   }
-  /* Product card images: shorter */
+
+  /* Product card box model & responsiveness */
+  section#products div[class*="group relative flex flex-col justify-between"] {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 1rem !important;
+  }
+
+  /* Product card images: full width, clean aspect ratio */
   section#products .h-36,
   section#products .h-40 {
-    height: 7rem !important;
+    height: 11rem !important;
+    width: 100% !important;
+  }
+
+  /* Ensure card headings wrap naturally */
+  section#products h4 {
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
   }
 
   /* ── 9. PRODUCT RIBBON (hero bottom) ────────────────────── */
@@ -559,10 +597,91 @@
      Prevent any element from causing horizontal scroll       */
   body, #root {
     overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100% !important;
   }
   .max-w-\[1560px\],
   .max-w-\[1520px\],
-  .max-w-\[1600px\] {
+  .max-w-\[1600px\],
+  .max-w-7xl {
     max-width: 100% !important;
+  }
+
+  /* ── 14. MOBILE PERFORMANCE & LAG ELIMINATION ───────────────
+     Disable heavy backdrop-filter & multiple blur layers on
+     mobile to guarantee 60fps buttery-smooth touch scrolling.  */
+  section#products div[class*="backdrop-blur"],
+  section#services div[class*="backdrop-blur"],
+  section#quality div[class*="backdrop-blur"],
+  section#workflow div[class*="backdrop-blur"] {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /* Lighter, performant shadows on mobile */
+  .shadow-2xl, .shadow-xl {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5) !important;
+  }
+
+  /* Touch scrolling smoothness */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* Respect reduced motion preference for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── GLOBAL SCROLL MARGINS FOR SECTIONS ───────────────────
+   Prevents fixed header from covering section headings     */
+html {
+  scroll-behavior: smooth;
+}
+section {
+  scroll-margin-top: 4.5rem;
+}
+
+/* ── LAPTOP VIEWPORT SCREEN FIT (1366x768 & 1440x900) ────
+   Keeps the entire hero, owner portrait, and product ribbon
+   visible without unnecessary scrolling on laptop screens  */
+@media (min-width: 1024px) and (max-height: 820px) {
+  header > div.w-full.py-1\.5 {
+    padding-top: 0.25rem !important;
+    padding-bottom: 0.25rem !important;
+  }
+  header > div.max-w-\[1560px\] {
+    height: 56px !important;
+  }
+  section#home {
+    min-height: calc(100vh - 84px) !important;
+    max-height: calc(100vh - 84px) !important;
+    padding-top: 0.25rem !important;
+    padding-bottom: 0.25rem !important;
+    overflow: hidden !important;
+  }
+  section#home h1 {
+    font-size: 2.85rem !important;
+    line-height: 1.05 !important;
+  }
+  section#home p.text-sm {
+    font-size: 0.75rem !important;
+    line-height: 1.4 !important;
+  }
+  section#home img[alt*="Saravana Kumar"] {
+    max-height: min(44vh, 390px) !important;
+  }
+  section#home .text-center div:first-child[style*="Dancing Script"] {
+    font-size: 1.85rem !important;
+  }
+  section#home .relative.z-30 {
+    margin-top: 0.35rem !important;
+    margin-bottom: 0.15rem !important;
   }
 }

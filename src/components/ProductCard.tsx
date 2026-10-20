@@ -10,7 +10,7 @@ interface ProductCardProps {
   layout?: 'grid' | 'list';
 }
 
-export const ProductCard: React.FC<ProductCardProps> = ({
+export const ProductCard: React.FC<ProductCardProps> = React.memo(({
   item,
   onEnquire,
   onViewDetails,
@@ -23,9 +23,9 @@ export const ProductCard: React.FC<ProductCardProps> = ({
     return (
       <div
         onClick={() => onViewDetails(item)}
-        className="group relative flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#111317] rounded-xl border border-white/10 hover:border-white/30 hover:bg-[#16181F] hover:shadow-[0_8px_24px_rgba(0,0,0,0.7)] transition-all duration-200 p-4 cursor-pointer"
+        className="group relative flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#111317] rounded-xl border border-white/10 hover:border-white/30 hover:bg-[#16181F] hover:shadow-[0_8px_24px_rgba(0,0,0,0.7)] transition-all duration-200 p-4 cursor-pointer w-full min-w-0 max-w-full box-border"
       >
-        <div className="flex items-start sm:items-center gap-3.5 min-w-0">
+        <div className="flex items-start sm:items-center gap-3.5 min-w-0 flex-1">
           <div className="w-14 h-14 rounded-lg overflow-hidden shrink-0 border border-white/10">
             <RealisticDentalImage
               category={item.category}
@@ -34,7 +34,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
               altText={`${item.name} clinical dental restoration`}
             />
           </div>
-          <div className="min-w-0">
+          <div className="min-w-0 flex-1">
             <div className="flex items-center gap-2 text-[10px] font-mono text-[#8E95A2]">
               <span className="text-[#C0C4CA] uppercase truncate font-semibold">{item.category}</span>
               {item.subcategory && (
@@ -44,11 +44,11 @@ export const ProductCard: React.FC<ProductCardProps> = ({
                 </>
               )}
             </div>
-            <h4 className="text-sm font-bold text-white group-hover:text-[#E5E7EB] transition-colors truncate">
+            <h4 className="text-sm font-bold text-white group-hover:text-[#E5E7EB] transition-colors break-words">
               {item.name}
             </h4>
             {item.description && (
-              <p className="text-xs text-[#8E95A2] line-clamp-1 font-light mt-0.5">
+              <p className="text-xs text-[#8E95A2] line-clamp-2 font-light mt-0.5 break-words">
                 {item.description}
               </p>
             )}
@@ -83,15 +83,15 @@ export const ProductCard: React.FC<ProductCardProps> = ({
     );
   }
 
-  // Grid layout
+  // Grid layout: 100% width, min-width 0, full card boundary protection
   return (
     <div
       onClick={() => onViewDetails(item)}
-      className="group relative flex flex-col justify-between bg-[#111317] rounded-xl border border-white/10 hover:border-white/30 hover:bg-[#15171D] hover:shadow-[0_12px_28px_rgba(0,0,0,0.8)] transition-all duration-200 p-4 sm:p-5 cursor-pointer"
+      className="group relative flex flex-col justify-between bg-[#111317] rounded-xl border border-white/10 hover:border-white/30 hover:bg-[#15171D] hover:shadow-[0_12px_28px_rgba(0,0,0,0.8)] transition-all duration-200 p-4 sm:p-5 cursor-pointer w-full min-w-0 max-w-full box-border"
     >
-      <div className="space-y-3">
+      <div className="space-y-3 w-full min-w-0">
         {/* Realistic Photograph Thumbnail */}
-        <div className="relative h-36 sm:h-40 w-full rounded-lg overflow-hidden border border-white/5 shadow-inner">
+        <div className="relative h-44 sm:h-40 w-full rounded-lg overflow-hidden border border-white/5 shadow-inner">
           <RealisticDentalImage
             category={item.category}
             subcategory={item.subcategory}
@@ -105,44 +105,44 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         </div>
 
         {/* Metadata */}
-        <div className="flex items-center justify-between text-xs text-[#8E95A2] font-mono">
+        <div className="flex items-center justify-between text-xs text-[#8E95A2] font-mono gap-2">
           <span className="text-[#C0C4CA] uppercase text-[10px] font-semibold tracking-wider truncate">
             {item.category}
           </span>
           {item.subcategory && (
-            <span className="text-[#646A77] text-[10px] truncate max-w-[140px]">
+            <span className="text-[#646A77] text-[10px] truncate max-w-[140px] text-right shrink-0">
               {item.subcategory}
             </span>
           )}
         </div>
 
         {/* Title */}
-        <div>
-          <h4 className="text-sm sm:text-base font-bold text-white group-hover:text-[#E5E7EB] transition-colors leading-snug">
+        <div className="w-full min-w-0">
+          <h4 className="text-sm sm:text-base font-bold text-white group-hover:text-[#E5E7EB] transition-colors leading-snug break-words">
             {item.name}
           </h4>
         </div>
 
         {/* Description */}
         {item.description && (
-          <p className="text-xs text-[#8E95A2] leading-relaxed line-clamp-2 font-light">
+          <p className="text-xs text-[#8E95A2] leading-relaxed line-clamp-2 font-light break-words">
             {item.description}
           </p>
         )}
       </div>
 
       {/* Card Action Buttons: View Details & Enquire on WhatsApp */}
-      <div className="pt-4 mt-4 border-t border-white/5 grid grid-cols-2 gap-2">
+      <div className="pt-3.5 mt-3.5 border-t border-white/5 flex flex-row items-center gap-2 w-full min-w-0">
         <button
           type="button"
           onClick={(e) => {
             e.stopPropagation();
             onViewDetails(item);
           }}
-          className="w-full flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 text-white text-xs font-semibold transition-all cursor-pointer"
+          className="flex-1 min-w-0 flex items-center justify-center gap-1.5 py-2 px-2.5 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 text-white text-xs font-semibold transition-all cursor-pointer truncate"
         >
-          <Eye className="w-3.5 h-3.5 text-[#C0C4CA]" />
-          <span>Details</span>
+          <Eye className="w-3.5 h-3.5 text-[#C0C4CA] shrink-0" />
+          <span className="truncate">Details</span>
         </button>
 
         <a
@@ -150,12 +150,12 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           target="_blank"
           rel="noopener noreferrer"
           onClick={(e) => e.stopPropagation()}
-          className="metallic-button w-full flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg text-xs font-semibold transition-all cursor-pointer whitespace-nowrap"
+          className="metallic-button flex-1 min-w-0 flex items-center justify-center gap-1.5 py-2 px-2.5 rounded-lg text-xs font-semibold transition-all cursor-pointer whitespace-nowrap"
         >
-          <MessageCircle className="w-3.5 h-3.5 text-[#08090B]" />
-          <span>WhatsApp</span>
+          <MessageCircle className="w-3.5 h-3.5 text-[#08090B] shrink-0" />
+          <span className="truncate">WhatsApp</span>
         </a>
       </div>
     </div>
   );
-};
+});

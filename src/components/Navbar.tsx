@@ -1,5 +1,21 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Phone, MessageCircle, Menu, X, ArrowUpRight, Check, ChevronDown } from 'lucide-react';
+import { 
+  Phone, 
+  MessageCircle, 
+  Menu, 
+  X, 
+  ArrowUpRight, 
+  ChevronDown,
+  Home,
+  Info,
+  Package,
+  ScanLine,
+  Sparkles,
+  Workflow,
+  ShieldCheck,
+  PhoneCall,
+  ChevronRight
+} from 'lucide-react';
 import { AppTheme } from '../types';
 
 interface NavbarProps {
@@ -83,14 +99,14 @@ export const Navbar: React.FC<NavbarProps> = ({
   };
 
   const navLinks = [
-    { label: 'Home', view: 'home' as const, sectionId: 'home' },
-    { label: 'About Us', view: 'home' as const, sectionId: 'about' },
-    { label: 'Dental Scanner', view: 'home' as const, sectionId: 'scanner', isNew: true },
-    { label: 'Our Services', view: 'home' as const, sectionId: 'services' },
-    { label: 'Our Products', view: 'products' as const, sectionId: undefined },
-    { label: 'How We Work', view: 'home' as const, sectionId: 'workflow' },
-    { label: 'Quality & Delivery', view: 'home' as const, sectionId: 'quality' },
-    { label: 'Contact Us', view: 'home' as const, sectionId: 'contact' },
+    { label: 'Home', view: 'home' as const, sectionId: 'home', icon: Home },
+    { label: 'About Us', view: 'home' as const, sectionId: 'about', icon: Info },
+    { label: 'Products Catalog', view: 'products' as const, sectionId: undefined, icon: Package },
+    { label: 'Dental Scanner Solutions', view: 'home' as const, sectionId: 'scanner', isNew: true, icon: ScanLine },
+    { label: 'Our Services', view: 'home' as const, sectionId: 'services', icon: Sparkles },
+    { label: 'How We Work', view: 'home' as const, sectionId: 'workflow', icon: Workflow },
+    { label: 'Quality & Delivery', view: 'home' as const, sectionId: 'quality', icon: ShieldCheck },
+    { label: 'Contact Us', view: 'home' as const, sectionId: 'contact', icon: PhoneCall },
   ];
 
   return (
@@ -101,7 +117,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           : 'bg-[#08090B]/95 backdrop-blur-md border-white/10 shadow-lg'
       }`}
     >
-      {/* Top Dental Scanner Highlight Ribbon */}
+      {/* Top Dental Scanner Highlight Ribbon (Silver/White Theme) */}
       <div
         className={`w-full py-1.5 px-3 sm:px-6 text-center text-[11px] sm:text-xs font-medium border-b flex items-center justify-center gap-2 sm:gap-3 transition-colors ${
           isLight
@@ -109,7 +125,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             : 'bg-[#101217] border-white/10 text-white'
         }`}
       >
-        <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[9.5px] font-mono font-bold uppercase tracking-wider bg-emerald-400 text-black shrink-0 shadow-xs">
+        <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[9.5px] font-mono font-bold uppercase tracking-wider bg-white text-black shrink-0 shadow-xs">
           <span className="w-1.5 h-1.5 rounded-full bg-black animate-pulse" />
           NEW
         </span>
@@ -121,7 +137,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           href="https://wa.me/917639664119?text=Hello%20Saravana%20Kumar%2C%20I%20would%20like%20to%20enquire%20about%20Dental%20Scanner%20Solutions%20at%20Dental%20Lab%20Connect."
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-400 hover:text-emerald-300 underline underline-offset-2 shrink-0 ml-1"
+          className="inline-flex items-center gap-1 text-[11px] font-semibold text-white hover:text-neutral-300 underline underline-offset-2 shrink-0 ml-1"
         >
           <span>Enquire on WhatsApp</span>
           <ArrowUpRight className="w-3 h-3" />
@@ -209,7 +225,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 >
                   <span>{link.label}</span>
                   {link.isNew && (
-                    <span className="px-1.5 py-0.2 rounded text-[8.5px] font-mono font-bold uppercase tracking-wider bg-emerald-400 text-black shadow-xs">
+                    <span className="px-1.5 py-0.2 rounded text-[8.5px] font-mono font-bold uppercase tracking-wider bg-white text-black shadow-xs">
                       NEW
                     </span>
                   )}
@@ -459,27 +475,66 @@ export const Navbar: React.FC<NavbarProps> = ({
             </div>
           </div>
 
-          <nav className="flex flex-col space-y-1 pt-1">
-            {navLinks.map((link) => (
-              <button
-                key={link.label}
-                type="button"
-                onClick={(e) => handleLinkClick(e, link.view, link.sectionId)}
-                className={`flex items-center justify-between text-left px-3 py-2.5 rounded-lg text-sm font-medium transition-colors cursor-pointer ${
-                  isLight
-                    ? 'text-[#333742] hover:text-[#17191D] hover:bg-[#F5F6F8]'
-                    : 'text-[#C0C4CA] hover:text-white hover:bg-white/5'
-                }`}
-              >
-                <span>{link.label}</span>
-                {link.isNew && (
-                  <span className="px-1.5 py-0.5 rounded text-[9px] font-mono font-extrabold uppercase bg-emerald-400 text-black">
-                    NEW
-                  </span>
-                )}
-              </button>
-            ))}
-          </nav>
+          {/* Catalog-style Mobile Module Menu */}
+          <div className="pt-1 pb-1">
+            <div className="flex items-center justify-between px-2 mb-2">
+              <span className={`text-[10px] font-mono uppercase tracking-widest ${isLight ? 'text-[#5A6270]' : 'text-[#8E95A2]'}`}>
+                Catalog Modules &amp; Sections
+              </span>
+              <span className={`text-[10px] font-mono ${isLight ? 'text-[#8E95A2]' : 'text-white/40'}`}>
+                {navLinks.length} Items
+              </span>
+            </div>
+
+            <nav className="flex flex-col space-y-1">
+              {navLinks.map((link) => {
+                const IconComponent = link.icon;
+                const isActive =
+                  link.view === 'products'
+                    ? currentView === 'products'
+                    : currentView === 'home' && link.sectionId === 'home';
+
+                return (
+                  <button
+                    key={link.label}
+                    type="button"
+                    onClick={(e) => handleLinkClick(e, link.view, link.sectionId)}
+                    className={`flex items-center justify-between text-left px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 cursor-pointer border ${
+                      isLight
+                        ? isActive
+                          ? 'bg-[#ECEEF2] text-[#17191D] border-[#CCD1DA] font-semibold'
+                          : 'bg-white hover:bg-[#F5F6F8] text-[#333742] border-[#E5E7EB]'
+                        : isActive
+                        ? 'bg-white/10 text-white border-white/25 font-semibold'
+                        : 'bg-white/[0.03] hover:bg-white/[0.08] text-[#C0C4CA] hover:text-white border-white/5 hover:border-white/15'
+                    }`}
+                  >
+                    <div className="flex items-center gap-3 min-w-0">
+                      <div
+                        className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 border ${
+                          isLight
+                            ? 'bg-[#F0F2F5] border-[#DDE0E5] text-[#17191D]'
+                            : 'bg-white/[0.06] border-white/10 text-white'
+                        }`}
+                      >
+                        <IconComponent className="w-3.5 h-3.5" />
+                      </div>
+                      <span className="truncate">{link.label}</span>
+                    </div>
+
+                    <div className="flex items-center gap-2 shrink-0">
+                      {link.isNew && (
+                        <span className="px-1.5 py-0.5 rounded text-[8.5px] font-mono font-extrabold uppercase bg-white text-black shadow-xs">
+                          NEW
+                        </span>
+                      )}
+                      <ChevronRight className={`w-3.5 h-3.5 ${isLight ? 'text-[#8E95A2]' : 'text-white/30'}`} />
+                    </div>
+                  </button>
+                );
+              })}
+            </nav>
+          </div>
 
           <div className="mt-4 pt-4 border-t border-inherit flex flex-col gap-2.5">
             <a

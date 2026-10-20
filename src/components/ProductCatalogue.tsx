@@ -224,7 +224,7 @@ export const ProductCatalogue: React.FC<ProductCatalogueProps> = ({
               >
                 {downloadSuccess ? (
                   <>
-                    <CheckCircle2 className="w-4 h-4 text-emerald-800" />
+                    <CheckCircle2 className="w-4 h-4 text-[#08090B]" />
                     <span>Brochure Downloaded!</span>
                   </>
                 ) : (
@@ -237,14 +237,14 @@ export const ProductCatalogue: React.FC<ProductCatalogueProps> = ({
             </div>
 
             {/* Quick Search across all products */}
-            <div className="relative max-w-xl">
+            <div className="relative w-full max-w-xl min-w-0 box-border">
               <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#8E95A2] pointer-events-none" />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search across all 262 products (e.g. Zirconia, Hawleys, Hyrax, DMLS)..."
-                className="w-full pl-10 pr-10 py-3 bg-[#111317] border border-white/10 rounded-xl text-sm text-white placeholder:text-[#646A77] focus:outline-hidden focus:border-[#C0C4CA] focus:ring-1 focus:ring-[#C0C4CA] transition-all"
+                className="w-full pl-10 pr-10 py-3 bg-[#111317] border border-white/10 rounded-xl text-sm text-white placeholder:text-[#646A77] focus:outline-hidden focus:border-[#C0C4CA] focus:ring-1 focus:ring-[#C0C4CA] transition-all box-border min-w-0"
               />
               {searchQuery && (
                 <button
@@ -533,16 +533,16 @@ export const ProductCatalogue: React.FC<ProductCatalogueProps> = ({
               )}
 
               {/* Search & Layout Control Bar */}
-              <div className="pt-4 border-t border-white/10 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+              <div className="pt-4 border-t border-white/10 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 w-full min-w-0 box-border">
                 {/* Search within this category */}
-                <div className="relative flex-1 max-w-md">
+                <div className="relative w-full sm:max-w-md min-w-0 box-border">
                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-[#8E95A2] pointer-events-none" />
                   <input
                     type="text"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder={`Search within ${selectedCategory === 'All Products' ? 'products' : selectedCategory}...`}
-                    className="w-full pl-9 pr-9 py-2 bg-[#15171B] border border-white/10 rounded-lg text-xs text-white placeholder:text-[#646A77] focus:outline-hidden focus:border-[#C0C4CA]"
+                    className="w-full pl-9 pr-9 py-2 bg-[#15171B] border border-white/10 rounded-lg text-xs text-white placeholder:text-[#646A77] focus:outline-hidden focus:border-[#C0C4CA] box-border min-w-0"
                   />
                   {searchQuery && (
                     <button
@@ -556,7 +556,7 @@ export const ProductCatalogue: React.FC<ProductCatalogueProps> = ({
                 </div>
 
                 {/* Status Count & Layout Switcher */}
-                <div className="flex items-center justify-between sm:justify-end gap-3">
+                <div className="flex items-center justify-between sm:justify-end gap-3 w-full sm:w-auto shrink-0">
                   <span className="text-xs font-mono text-[#8E95A2]">
                     Showing <strong className="text-white">{filteredItems.length}</strong> items
                   </span>

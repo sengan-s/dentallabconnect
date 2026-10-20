@@ -105,7 +105,7 @@ export const HowWeWorkSection: React.FC<HowWeWorkSectionProps> = ({
                 : 'bg-white/5 border-white/10 text-[#C0C4CA]'
             }`}
           >
-            <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
+            <Sparkles className="w-3.5 h-3.5 text-white" />
             <span>Dedicated Process Module</span>
           </div>
 
@@ -166,7 +166,7 @@ export const HowWeWorkSection: React.FC<HowWeWorkSectionProps> = ({
 
               {/* Step Content */}
               <div className="space-y-2.5 flex-1 mb-6">
-                <div className="text-[10px] font-mono uppercase tracking-widest text-emerald-400 font-semibold">
+                <div className={`text-[10px] font-mono uppercase tracking-widest font-semibold ${isLight ? 'text-[#5A6270]' : 'text-neutral-300'}`}>
                   {item.tag}
                 </div>
                 <h3 
@@ -192,7 +192,7 @@ export const HowWeWorkSection: React.FC<HowWeWorkSectionProps> = ({
                 }`}
               >
                 <span>Step {item.step} of 04</span>
-                <span className="opacity-0 group-hover:opacity-100 transition-opacity text-emerald-400 font-semibold">
+                <span className="opacity-0 group-hover:opacity-100 transition-opacity text-white font-semibold">
                   →
                 </span>
               </div>
@@ -209,8 +209,8 @@ export const HowWeWorkSection: React.FC<HowWeWorkSectionProps> = ({
           }`}
         >
           <div className="space-y-1.5 text-center md:text-left max-w-xl">
-            <div className="inline-flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-widest text-emerald-400 font-semibold">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            <div className={`inline-flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-widest font-semibold ${isLight ? 'text-[#5A6270]' : 'text-neutral-300'}`}>
+              <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
               <span>Direct Laboratory Coordination</span>
             </div>
             <h4 
@@ -230,13 +230,17 @@ export const HowWeWorkSection: React.FC<HowWeWorkSectionProps> = ({
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-3 shrink-0">
-            {/* Clear WhatsApp Enquiry Button as requested */}
+            {/* Clear WhatsApp Enquiry Button with metallic styling */}
             <a
               id="how-we-work-whatsapp"
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer shadow-lg bg-[#25D366] hover:bg-[#20BD5A] text-white active:scale-[0.98]"
+              className={`inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer shadow-lg active:scale-[0.98] ${
+                isLight
+                  ? 'bg-[#17191D] hover:bg-[#2C313A] text-white shadow-[0_4px_16px_rgba(23,25,29,0.2)]'
+                  : 'metallic-button text-[#08090B]'
+              }`}
               aria-label="Enquire about How We Work on WhatsApp"
             >
               <MessageCircle className="w-4 h-4 shrink-0" />

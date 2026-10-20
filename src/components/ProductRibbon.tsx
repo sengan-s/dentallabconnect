@@ -78,7 +78,7 @@ export const ProductRibbon: React.FC<ProductRibbonProps> = ({ onSelectCategory, 
                 style={{ height: '72px' }}
               >
                 {cat.badge && (
-                  <span className="absolute top-0 right-0 z-10 px-1.5 py-0.5 rounded text-[8.5px] font-mono font-extrabold uppercase tracking-wider bg-emerald-400 text-black shadow-md">
+                  <span className="absolute top-0 right-0 z-10 px-1.5 py-0.5 rounded text-[8.5px] font-mono font-extrabold uppercase tracking-wider bg-white text-black shadow-md">
                     {cat.badge}
                   </span>
                 )}

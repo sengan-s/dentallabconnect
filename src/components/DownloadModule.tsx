@@ -117,7 +117,7 @@ export const DownloadModule: React.FC<DownloadModuleProps> = ({
                 <span className="px-3 py-1 rounded-md bg-white/5 border border-white/10 text-[#C0C4CA]">
                   224 Precision Items
                 </span>
-                <span className="px-3 py-1 rounded-md bg-white/5 border border-white/10 text-emerald-400">
+                <span className="px-3 py-1 rounded-md bg-white/5 border border-white/10 text-white">
                   Strictly No Prices
                 </span>
               </div>
@@ -138,7 +138,7 @@ export const DownloadModule: React.FC<DownloadModuleProps> = ({
                   </>
                 ) : downloadSuccess ? (
                   <>
-                    <CheckCircle2 className="w-5 h-5 text-emerald-800" />
+                    <CheckCircle2 className="w-5 h-5 text-[#08090B]" />
                     <span>Product List Downloaded!</span>
                   </>
                 ) : (
