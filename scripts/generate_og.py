@@ -18,6 +18,7 @@ def get_base64_img(rel_path):
 saravana_b64 = get_base64_img("public/images/saravana-kumar.png")
 scanner_b64 = get_base64_img("public/images/categories/dental-scanner.jpg")
 zirconia_b64 = get_base64_img("public/images/categories/reliance-zirconia.jpg")
+dentures_b64 = get_base64_img("public/images/categories/removable-prosthesis.jpg")
 bg_b64 = get_base64_img("public/images/dental-lab-hero-bg.jpg")
 
 html_content = f"""<!DOCTYPE html>
@@ -210,28 +211,29 @@ html_content = f"""<!DOCTYPE html>
     .products-showcase {{
       display: flex;
       align-items: center;
-      gap: 14px;
-      margin-top: 20px;
+      gap: 10px;
+      margin-top: 18px;
     }}
     .prod-card {{
       flex: 1;
       display: flex;
       align-items: center;
-      gap: 14px;
-      padding: 12px 16px;
-      border-radius: 16px;
-      background: rgba(18, 20, 26, 0.88);
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(18, 20, 26, 0.90);
       border: 1px solid rgba(255, 255, 255, 0.14);
-      box-shadow: 0 12px 28px rgba(0,0,0,0.55);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.55);
       backdrop-filter: blur(12px);
+      min-width: 0;
     }}
     .prod-thumb {{
-      width: 66px;
-      height: 66px;
-      border-radius: 12px;
+      width: 50px;
+      height: 50px;
+      border-radius: 10px;
       overflow: hidden;
       background: #0B0D11;
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.14);
       flex-shrink: 0;
     }}
     .prod-thumb img {{
@@ -242,22 +244,37 @@ html_content = f"""<!DOCTYPE html>
     .prod-info {{
       display: flex;
       flex-direction: column;
-      gap: 3px;
+      gap: 2px;
+      min-width: 0;
     }}
     .prod-tag {{
-      font-size: 9.5px;
+      font-size: 8.5px;
       font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.08em;
       color: #CBD5E1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }}
     .prod-name {{
-      font-size: 15px;
+      font-size: 13.5px;
       font-weight: 700;
       color: #FFFFFF;
-      line-height: 1.2;
+      line-height: 1.15;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }}
     .prod-sub {{
+      font-size: 10px;
+      color: #9AA0AC;
+      font-weight: 400;
+      line-height: 1.25;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }}
       font-size: 11px;
       color: #9AA0AC;
       font-weight: 400;
@@ -377,7 +394,7 @@ html_content = f"""<!DOCTYPE html>
             <span>Dental Lab</span>
             <span class="main-title-light">Connect</span>
           </h1>
-          <p class="subtitle">Premium Dental Laboratory Products &amp; Digital Scanning Solutions</p>
+          <p class="subtitle">Your Trusted Partner for Dental Lab Solutions</p>
         </div>
 
         <div class="stats-pills">
@@ -385,10 +402,10 @@ html_content = f"""<!DOCTYPE html>
             <span>✦ Intraoral Scanner Available</span>
           </div>
           <div class="stat-badge">
-            <span>Reliance Zirconia</span>
+            <span>Reliance Zirconia Crowns</span>
           </div>
           <div class="stat-badge">
-            <span>Clear Aligners</span>
+            <span>Custom Dentures</span>
           </div>
           <div class="stat-badge">
             <span>CAD/CAM Restorations</span>
@@ -403,9 +420,9 @@ html_content = f"""<!DOCTYPE html>
               <img src="{scanner_b64}" alt="Dental Scanner">
             </div>
             <div class="prod-info">
-              <div class="prod-tag">NEW · DIGITAL SCANNING</div>
-              <div class="prod-name">Dental Scanner Solutions</div>
-              <div class="prod-sub">Accurate digital impressions &amp; lab sync</div>
+              <div class="prod-tag">DIGITAL SCANNER</div>
+              <div class="prod-name">Intraoral Scanner</div>
+              <div class="prod-sub">Accurate digital sync</div>
             </div>
           </div>
 
@@ -414,9 +431,20 @@ html_content = f"""<!DOCTYPE html>
               <img src="{zirconia_b64}" alt="Zirconia Crowns">
             </div>
             <div class="prod-info">
-              <div class="prod-tag">PREMIUM RESTORATIONS</div>
-              <div class="prod-name">Reliance Zirconia Crowns</div>
-              <div class="prod-sub">Multilayer aesthetic translucency</div>
+              <div class="prod-tag">CROWNS &amp; BRIDGES</div>
+              <div class="prod-name">Reliance Zirconia</div>
+              <div class="prod-sub">Aesthetic multilayer</div>
+            </div>
+          </div>
+
+          <div class="prod-card">
+            <div class="prod-thumb">
+              <img src="{dentures_b64}" alt="Custom Dentures">
+            </div>
+            <div class="prod-info">
+              <div class="prod-tag">DENTURES &amp; APPLIANCES</div>
+              <div class="prod-name">Custom Dentures</div>
+              <div class="prod-sub">Precision removable</div>
             </div>
           </div>
         </div>
@@ -426,7 +454,7 @@ html_content = f"""<!DOCTYPE html>
             <span class="whatsapp-icon">✓</span>
             <span>WhatsApp &amp; Call: +91 76396 64119</span>
           </div>
-          <div>Laboratory Partner for Dental Professionals</div>
+          <div>Your Trusted Partner for Dental Lab Solutions</div>
         </div>
       </div>
     </div>
