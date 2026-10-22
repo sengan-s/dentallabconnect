@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="silver-border" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="50%" stop-color="#C0C4CA" />
+      <stop offset="100%" stop-color="#4A4E58" />
+    </linearGradient>
+    <linearGradient id="silver-text" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="60%" stop-color="#E5E7EB" />
+      <stop offset="100%" stop-color="#A0A5AE" />
+    </linearGradient>
+  </defs>
+  <rect x="20" y="20" width="472" height="472" rx="110" ry="110" fill="#08090B" stroke="url(#silver-border)" stroke-width="20" />
+  <rect x="36" y="36" width="440" height="440" rx="98" ry="98" fill="none" stroke="#2A2E37" stroke-width="3" />
+  <text x="50%" y="54%" text-anchor="middle" dominant-baseline="middle" font-family="'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="200" letter-spacing="4" fill="url(#silver-text)">DLC</text>
+</svg>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://dentallabconnect.vercel.app/</loc>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://dentallabconnect.vercel.app/images/saravana-kumar.jpg</image:loc>
+      <image:title>Saravana Kumar - Dental Lab Connect</image:title>
+      <image:caption>Saravana Kumar, Dental Laboratory Coordinator &amp; Specialist at Dental Lab Connect</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://dentallabconnect.vercel.app/og-preview-v3.jpg</image:loc>
+      <image:title>Dental Lab Connect - Laboratory Solutions</image:title>
+      <image:caption>Dental crowns, dentures, and intraoral scanning solutions</image:caption>
+    </image:image>
+  </url>
+</urlset>
